@@ -50,7 +50,7 @@ namespace Rynkeby
         }        
         private void PopulateMyListView(ListView listView1)
         {
-            // if you call this method multiple times, don't forget to remove the olds rows
+            
             listView1.Items.Clear();
 
             var path = @"C:\Universitet\Privat\testfil.csv";
