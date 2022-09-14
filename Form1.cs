@@ -31,9 +31,22 @@ namespace Rynkeby
         {
             
         }
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            selectrandoms(listView1,5);
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Indtast et tal");
+            }
+            else
+            {
+                selectrandoms(listView1, textBox1.Text);
+            }
+
+
         }        
         private void PopulateMyListView(ListView listView1)
         {
@@ -57,8 +70,7 @@ namespace Rynkeby
                     //læser linje og pointer bevaeger sig til næste linje 
                     string[] fields = csvParser.ReadFields();
 
-                    ListViewItem row = new ListViewItem();
-                    row.SubItems.Add(fields[0]);
+                    ListViewItem row = new ListViewItem(fields[0]);
                     row.SubItems.Add(fields[1]);
                     row.SubItems.Add(fields[2]);
                     row.SubItems.Add(fields[3]);
@@ -79,48 +91,81 @@ namespace Rynkeby
             }
         }
 
-        private void selectrandoms(ListView listView1, int numberOfRandoms)
+        private void selectrandoms(ListView listView1, string numberOfRandoms)
         {
+            listView2.Items.Clear();
             List<string> Event = new List<string>();
             List<string> Currency = new List<string>();
             List<string> Ammount = new List<string>();
             List<string> DateAndTime = new List<string>();
             List<string> customerName = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
-            List<string> lwitems = new List<string>();
+            List<string> mpnumber = new List<string>();
+            List<string> Comment = new List<string>();
+            List<string> transactionid = new List<string>();
+            List<string> transferid = new List<string>();
+            List<string> paymentpoint = new List<string>();
+            List<string> myshopnumber = new List<string>();
+            List<string> Bankaccount = new List<string>();
+            List<string> Date = new List<string>();
+            List<string> time = new List<string>();
 
 
             foreach (ListViewItem item in listView1.Items)
             {
-                lwitems.Add(item.SubItems[0].Text);
-               
+                Event.Add(item.SubItems[0].Text);
+                Currency.Add(item.SubItems[1].Text);
+                Ammount.Add(item.SubItems[2].Text);
+                DateAndTime.Add(item.SubItems[3].Text);
+                customerName.Add(item.SubItems[4].Text);
+                mpnumber.Add(item.SubItems[5].Text);
+                Comment.Add(item.SubItems[6].Text);
+                transactionid.Add(item.SubItems[7].Text);
+                transferid.Add(item.SubItems[8].Text);
+                paymentpoint.Add(item.SubItems[9].Text);
+                myshopnumber.Add(item.SubItems[10].Text);
+                Bankaccount.Add(item.SubItems[11].Text);
+                Date.Add(item.SubItems[12].Text);
+                time.Add(item.SubItems[13].Text);
             }
 
             List<int> indexOfRandom = new List<int>();
             var random = new Random();
             var lower = 0;
-            var upper = test.Length;
-
-            for (int k = 0; k < numberOfRandoms; k++)
+            var upper = Event.Count;
+            int nof = Int32.Parse(numberOfRandoms);
+            while (indexOfRandom.Count < nof)
             {
                 var rannum = random.Next(lower, upper);
-                indexOfRandom.Add(rannum);
-            }
-
-            foreach (int item in indexOfRandom)
-            {
+                if (!indexOfRandom.Contains(rannum))
+                    indexOfRandom.Add(rannum);
                 
             }
+            listView2.BeginUpdate();
+            for (int i = 0; i < nof; i++)
+            {
+                ListViewItem randomrows = new ListViewItem(Event[i]);
+
+                randomrows.SubItems.Add(Currency[indexOfRandom[i]]);
+                randomrows.SubItems.Add(Ammount[indexOfRandom[i]]);
+                randomrows.SubItems.Add(DateAndTime[indexOfRandom[i]]);
+                randomrows.SubItems.Add(customerName[indexOfRandom[i]]);
+                randomrows.SubItems.Add(mpnumber[indexOfRandom[i]]);
+                randomrows.SubItems.Add(Comment[indexOfRandom[i]]);
+                randomrows.SubItems.Add(transactionid[indexOfRandom[i]]);
+                randomrows.SubItems.Add(transferid[indexOfRandom[i]]);
+                randomrows.SubItems.Add(paymentpoint[indexOfRandom[i]]);
+                randomrows.SubItems.Add(myshopnumber[indexOfRandom[i]]);
+                randomrows.SubItems.Add(Bankaccount[indexOfRandom[i]]);
+                randomrows.SubItems.Add(Date[indexOfRandom[i]]);
+                randomrows.SubItems.Add(time[indexOfRandom[i]]);
+                listView2.Items.Add(randomrows);
+            }
+            listView2.EndUpdate();    
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-     
+        }
     }
 }
