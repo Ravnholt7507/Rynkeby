@@ -29,10 +29,10 @@ namespace Rynkeby
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.listView1 = new System.Windows.Forms.ListView();
             this.Event = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Currency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,10 +84,10 @@ namespace Rynkeby
             this.Time,
             this.nothing});
             this.listView1.HideSelection = false;
-            listViewItem7.Checked = true;
-            listViewItem7.StateImageIndex = 1;
+            listViewItem1.Checked = true;
+            listViewItem1.StateImageIndex = 1;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1327, 430);
@@ -99,16 +99,17 @@ namespace Rynkeby
             // Event
             // 
             this.Event.Text = "Event";
+            this.Event.Width = 98;
             // 
             // Currency
             // 
             this.Currency.Text = "Currency";
-            this.Currency.Width = 67;
+            this.Currency.Width = 100;
             // 
             // Amount
             // 
             this.Amount.Text = "Amount";
-            this.Amount.Width = 64;
+            this.Amount.Width = 108;
             // 
             // Dateandtime
             // 
@@ -138,27 +139,27 @@ namespace Rynkeby
             // PaymentPoint
             // 
             this.PaymentPoint.Text = "Payment Point";
-            this.PaymentPoint.Width = 91;
+            this.PaymentPoint.Width = 101;
             // 
             // Myshopnumber
             // 
             this.Myshopnumber.Text = "My-shop number";
-            this.Myshopnumber.Width = 95;
+            this.Myshopnumber.Width = 109;
             // 
             // Date
             // 
             this.Date.Text = "Date";
-            this.Date.Width = 46;
+            this.Date.Width = 79;
             // 
             // Time
             // 
             this.Time.Text = "Time";
-            this.Time.Width = 59;
+            this.Time.Width = 228;
             // 
             // nothing
             // 
             this.nothing.Text = "";
-            this.nothing.Width = 0;
+            this.nothing.Width = 183;
             // 
             // button1
             // 
@@ -189,8 +190,8 @@ namespace Rynkeby
             this.columnHeader1});
             this.listView2.HideSelection = false;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8});
-            this.listView2.Location = new System.Drawing.Point(0, 483);
+            listViewItem2});
+            this.listView2.Location = new System.Drawing.Point(0, 478);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(1327, 217);
             this.listView2.TabIndex = 3;
@@ -201,7 +202,7 @@ namespace Rynkeby
             // columnHeader2
             // 
             this.columnHeader2.Text = "Event";
-            this.columnHeader2.Width = 108;
+            this.columnHeader2.Width = 127;
             // 
             // columnHeader3
             // 
