@@ -82,8 +82,7 @@ namespace Rynkeby
                     row.SubItems.Add(fields[9]);
                     row.SubItems.Add(fields[10]);
                     row.SubItems.Add(fields[11]);
-                    row.SubItems.Add(fields[12]);
-                    row.SubItems.Add(fields[13]);
+
 
                     listView1.Items.Add(row);
 
@@ -102,10 +101,10 @@ namespace Rynkeby
             List<string> mpnumber = new List<string>();
             List<string> Comment = new List<string>();
             List<string> transactionid = new List<string>();
-            List<string> transferid = new List<string>();
+ 
             List<string> paymentpoint = new List<string>();
             List<string> myshopnumber = new List<string>();
-            List<string> Bankaccount = new List<string>();
+
             List<string> Date = new List<string>();
             List<string> time = new List<string>();
 
@@ -120,12 +119,12 @@ namespace Rynkeby
                 mpnumber.Add(item.SubItems[5].Text);
                 Comment.Add(item.SubItems[6].Text);
                 transactionid.Add(item.SubItems[7].Text);
-                transferid.Add(item.SubItems[8].Text);
-                paymentpoint.Add(item.SubItems[9].Text);
-                myshopnumber.Add(item.SubItems[10].Text);
-                Bankaccount.Add(item.SubItems[11].Text);
-                Date.Add(item.SubItems[12].Text);
-                time.Add(item.SubItems[13].Text);
+     
+                paymentpoint.Add(item.SubItems[8].Text);
+                myshopnumber.Add(item.SubItems[9].Text);
+ 
+                Date.Add(item.SubItems[10].Text);
+                time.Add(item.SubItems[11].Text);
             }
 
             List<int> indexOfRandom = new List<int>();
@@ -133,6 +132,9 @@ namespace Rynkeby
             var lower = 0;
             var upper = Event.Count;
             int nof = Int32.Parse(numberOfRandoms);
+            var csv = new StringBuilder();
+            var path = @"C:\Universitet\Privat\output.csv";
+
             while (indexOfRandom.Count < nof)
             {
                 var rannum = random.Next(lower, upper);
@@ -144,7 +146,6 @@ namespace Rynkeby
             for (int i = 0; i < nof; i++)
             {
                 ListViewItem randomrows = new ListViewItem(Event[i]);
-
                 randomrows.SubItems.Add(Currency[indexOfRandom[i]]);
                 randomrows.SubItems.Add(Ammount[indexOfRandom[i]]);
                 randomrows.SubItems.Add(DateAndTime[indexOfRandom[i]]);
@@ -152,13 +153,29 @@ namespace Rynkeby
                 randomrows.SubItems.Add(mpnumber[indexOfRandom[i]]);
                 randomrows.SubItems.Add(Comment[indexOfRandom[i]]);
                 randomrows.SubItems.Add(transactionid[indexOfRandom[i]]);
-                randomrows.SubItems.Add(transferid[indexOfRandom[i]]);
                 randomrows.SubItems.Add(paymentpoint[indexOfRandom[i]]);
                 randomrows.SubItems.Add(myshopnumber[indexOfRandom[i]]);
-                randomrows.SubItems.Add(Bankaccount[indexOfRandom[i]]);
                 randomrows.SubItems.Add(Date[indexOfRandom[i]]);
                 randomrows.SubItems.Add(time[indexOfRandom[i]]);
                 listView2.Items.Add(randomrows);
+
+                var first = Event[indexOfRandom[i]];
+                var second = Currency[indexOfRandom[i]];
+                var third = Ammount[indexOfRandom[i]];
+                var fourth = DateAndTime[indexOfRandom[i]];
+                var fifth = customerName[indexOfRandom[i]];
+                var sixth = mpnumber[indexOfRandom[i]];
+                var seventh = Comment[indexOfRandom[i]];
+                var eighth = transactionid[indexOfRandom[i]];
+                var ninth = paymentpoint[indexOfRandom[i]];
+                var tenth = myshopnumber[indexOfRandom[i]];
+                var eleventh = Date[indexOfRandom[i]];
+                var twelveth = time[indexOfRandom[i]];
+
+                var newLine = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11}", first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelveth);
+                csv.AppendLine(newLine);
+
+                File.WriteAllText(path, csv.ToString());
             }
             listView2.EndUpdate();    
         }
