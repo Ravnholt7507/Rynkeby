@@ -25,8 +25,6 @@ namespace Rynkeby
             PopulateMyListView(listView1);
 
         }
-
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -92,7 +90,6 @@ namespace Rynkeby
                 }
             }
         }
-
         private void selectrandoms(ListView listView1, string numberOfRandoms, string path)
         {
             listView2.Items.Clear();
@@ -136,7 +133,6 @@ namespace Rynkeby
             var upper = Event.Count;
             int nof = Int32.Parse(numberOfRandoms);
             var csv = new StringBuilder();
-            var pathtest = @"C:\Universitet\Privat\output.csv";
 
             while (indexOfRandom.Count < nof)
             {
@@ -182,22 +178,18 @@ namespace Rynkeby
             }
             listView2.EndUpdate();    
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             
         }
-
         private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
         {
 
