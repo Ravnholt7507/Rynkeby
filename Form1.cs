@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.FileIO;
 
-
 namespace Rynkeby
 {
     public partial class Form1 : Form
@@ -19,20 +18,23 @@ namespace Rynkeby
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateMyListView(listView1);
 
         }
+        
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
+        
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -48,6 +50,7 @@ namespace Rynkeby
 
 
         }        
+        
         private void PopulateMyListView(ListView listView1)
         {
             
@@ -90,6 +93,7 @@ namespace Rynkeby
                 }
             }
         }
+        
         private void selectrandoms(ListView listView1, string numberOfRandoms, string path)
         {
             listView2.Items.Clear();
@@ -178,18 +182,22 @@ namespace Rynkeby
             }
             listView2.EndUpdate();    
         }
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+        
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             
         }
+        
         private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
         {
 
