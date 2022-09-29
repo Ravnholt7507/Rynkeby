@@ -52,8 +52,9 @@ namespace Rynkeby
         {
             
             listView1.Items.Clear();
+            openFileDialog1.ShowDialog();
 
-            var path = @"C:\Universitet\Privat\testfil.csv";
+            var path = openFileDialog1.FileName;
 
             using (TextFieldParser csvParser = new TextFieldParser(path))
             {
@@ -183,6 +184,16 @@ namespace Rynkeby
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
