@@ -43,7 +43,9 @@ namespace Rynkeby
             }
             else
             {
-                selectrandoms(listView1, textBox1.Text);
+                openFileDialog2.ShowDialog();
+                var path = openFileDialog2.FileName;
+                selectrandoms(listView1, textBox1.Text, path);
             }
 
 
@@ -91,7 +93,7 @@ namespace Rynkeby
             }
         }
 
-        private void selectrandoms(ListView listView1, string numberOfRandoms)
+        private void selectrandoms(ListView listView1, string numberOfRandoms, string path)
         {
             listView2.Items.Clear();
             List<string> Event = new List<string>();
@@ -134,7 +136,7 @@ namespace Rynkeby
             var upper = Event.Count;
             int nof = Int32.Parse(numberOfRandoms);
             var csv = new StringBuilder();
-            var path = @"C:\Universitet\Privat\output.csv";
+            var pathtest = @"C:\Universitet\Privat\output.csv";
 
             while (indexOfRandom.Count < nof)
             {
@@ -194,6 +196,11 @@ namespace Rynkeby
         private void button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
